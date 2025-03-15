@@ -9078,3 +9078,80 @@ body:not(.is-mobile):not(.anp-hide-status-bar) .kanban-plugin__board > div {
   background-color: transparent;
   color: inherit;
 }
+
+/* Kanban Callout */
+.callout[data-callout~=kanban] {
+	--callout-color: unset;
+	--callout-icon: layout-dashboard;
+	--callout-padding: 0;
+	--item-outline: 0 0 0 1px var(--ctp-crust);
+	--lane-width: 250px;
+	background: transparent;
+	box-shadow: none;
+	border: 0;
+	width: auto;
+}
+.callout[data-callout~=kanban] .callout-title {
+	justify-content: center;
+	background: var(--ctp-mantle);
+	padding: 5px;
+	border-radius: var(--radius-s);
+}
+.callout[data-callout~=kanban] .callout-title-inner {
+	flex: unset;
+}
+.callout[data-callout~=kanban] .callout-content {
+	padding: 0;
+}
+.callout[data-callout~=kanban] ul li::marker,
+.callout[data-callout~=kanban] ul li::before,
+.callout[data-callout~=kanban] .list-bullet,
+.callout[data-callout~=kanban] ul::before,
+.callout[data-callout~=kanban] :is(ul, ul ul) .list-collapse-indicator {
+	list-style-type: none;
+	color: transparent;
+	display: none !important;
+}
+.callout[data-callout~=kanban] ul {
+	display: flex;
+	margin-block-start: 5px;
+	padding-inline-start: 0;
+	text-align: center;
+	overflow: auto;
+}
+.callout[data-callout~=kanban] ul.list-view-ul {
+	margin-inline-start: unset;
+}
+.callout[data-callout~=kanban] ul li {
+	min-width: var(--lane-width);
+	border: 0;
+	padding: 5px;
+	margin: 5px 1px;
+	padding-top: 4px;
+	background: var(--ctp-base);
+	border-radius: var(--radius-s);
+	box-shadow: var(--item-outline), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.callout[data-callout~=kanban] ul ul {
+	flex-direction: column;
+	text-align: left;
+	overflow: unset;
+}
+.callout[data-callout~=kanban] ul ul li {
+	min-width: calc(var(--lane-width) / 2);
+	padding: 5px;
+	box-shadow: var(--item-outline), 0 1px 2px rgba(0, 0, 0, 0.1);
+	background: var(--ctp-mantle);
+}
+.callout[data-callout~=kanban] ul ul li :is(img, .internal-embed) {
+	margin-bottom: -6px;
+}
+.callout[data-callout~=kanban] ul.contains-task-list .task-list-item-checkbox {
+	margin-inline-start: 0;
+}
+.callout[data-callout~=kanban] .task-list-item-checkbox {
+	cursor: default;
+}
+.callout[data-callout~=kanban] :is(ul, ol) > li p:first-of-type {
+	margin-block-start: 0;
+}
